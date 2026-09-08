@@ -1,7 +1,7 @@
 import {IncomingMessage , ServerResponse} from "http"
 
 import { getShoppingListItems , getShoppingListItemById , createShoppingListItem , updateShoppingListItem , deleteShoppingListItem } from "../controllers/shoppinglist";
-
+//adding routes for shopping list items
 export const shoppingListItemsRoute = async (req: IncomingMessage, res: ServerResponse) => {
   if (req.url?.startsWith('/shoppinglist/items')) {
     console.log(req.url,'Request received for all shopping list items');
