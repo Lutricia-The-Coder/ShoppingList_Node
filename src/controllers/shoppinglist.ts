@@ -32,7 +32,7 @@ export const updateShoppingListItem = (id: number, name: string, quantity: numbe
   return undefined;
 };
 
-//deleting an item in the shopping list
+//deleting an item in the shopping list using an id 
 export const deleteShoppingListItem = (id: number): boolean => {
   const itemIndex = shoppingListsItems.findIndex((item) => item.id === id);
   if (itemIndex !== -1) {
