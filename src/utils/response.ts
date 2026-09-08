@@ -1,0 +1,20 @@
+import { ServerResponse } from 'http';
+
+export const sendJson = (
+  res: ServerResponse,
+  statusCode: number,
+  data: unknown
+): void => {
+  res.writeHead(statusCode, {'Content-Type': 'application/json'});
+res.end(JSON.stringify(data));
+};
+//
+export const sendError = (
+  res: ServerResponse,
+  statusCode: number,
+  message: string
+): void => {
+  sendJson(res, statusCode, {
+    error: message
+  });
+};
