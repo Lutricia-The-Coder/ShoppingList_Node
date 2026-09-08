@@ -2,5 +2,11 @@
   "compilerOptions": {
 "types":["node"],
 "lib": ["esnext"],
+"target": "es6",
+"module": "commonjs",
+"rootDir": "./src",
+"outDir" :"./dist",
+"esModuleInterop": true,
+"strict": true
 }
 }
