@@ -25,7 +25,7 @@ export const shoppingListItemsRoute = (req: IncomingMessage,res: ServerResponse
       try {
         const { name, quantity, status } = JSON.parse(body);
         // Validate required fields
-        if ( name === undefined || quantity === undefined || status === undefined ) {
+        if ( name === undefined ||quantity === undefined || status === undefined ) {
           sendError(res, 400,'name, quantity and status are required' );
           return;
         }
@@ -37,13 +37,15 @@ export const shoppingListItemsRoute = (req: IncomingMessage,res: ServerResponse
         }
 
         // Validate quantity
-        if (typeof quantity !== 'number' ||quantity <= 0) {
+        if (quantity !== undefined &&
+          (typeof quantity !== 'number' ||quantity <= 0)) {
           sendError(  res, 400, 'quantity must be a number greater than 0'  );
           return;
         }
 
         // Validate status
-        if ( status !== 'pending' &&status !== 'completed') {
+        if (status !== undefined &&
+          (status !== 'pending' && status !== 'completed')) {
           sendError( res,400,'status must be either pending or completed' );
           return;
         }
@@ -76,7 +78,7 @@ export const shoppingListItemsRoute = (req: IncomingMessage,res: ServerResponse
       return;
     }
     sendJson(res, 200, item);
-    return;
+    return; 
   }
   // put (update)
   if ( url.startsWith('/items/') && req.method === 'PUT') {
@@ -101,27 +103,29 @@ export const shoppingListItemsRoute = (req: IncomingMessage,res: ServerResponse
 req.on('end', () => {
       try {
         const { name, quantity, status } = JSON.parse(body);
-        // PUT requires all fields to be present, so we validate them
-        if (name === undefined || quantity === undefined || status === undefined) {
-          sendError(res, 400,'name, quantity and status are required' ); return;
+        if (name === undefined && quantity === undefined && status === undefined) {
+          sendError(res, 400,'At least one field is required' ); return;
         }
 
-        if (typeof name !== 'string' ||name.trim() === ''  ) {
+        if(name !== undefined &&
+          (typeof name !== 'string' || name.trim() === '')) {
           sendError(res,400,'name must be a non-empty string' );
           return;
         }
 
-        if (typeof quantity !== 'number' || quantity <= 0) {
+        if (quantity !== undefined &&
+          (typeof quantity !== 'number' || quantity <= 0)) {
           sendError(res, 400,'quantity must be a number greater than 0');
           return;
         }
 
-        if (status !== 'pending' &&  status !== 'completed') {
+        if (status !== undefined &&
+          (status !== 'pending' && status !== 'completed')) {
           sendError(res, 400,'status must be either pending or completed' );
           return;
         }
 
-        const updatedItem = updateShoppingListItem(id,name.trim(), quantity,status);
+        const updatedItem = updateShoppingListItem(id,name?.trim(), quantity,status);
         sendJson(res, 200, updatedItem);
       } catch (error) {
  sendError(res, 400,  'Invalid JSON request body'  ); }
