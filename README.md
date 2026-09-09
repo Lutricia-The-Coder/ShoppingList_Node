@@ -1354,3 +1354,15 @@ DELETE /items/2
 ```
 
 This demonstrates how the API can be used to manage a real shopping list from creation through completion.
+
+### Author
+
+**Lutricia-The-Coder**
+
+GitHub:
+
+https://github.com/Lutricia-The-Coder
+
+###  Acknowledgments
+
+Special thanks to **Mentors and Facilitators** for providing practical front-end development challenges that encourage developers to strengthen their  TypeScript, Nodejs, and use of POSTMAN
