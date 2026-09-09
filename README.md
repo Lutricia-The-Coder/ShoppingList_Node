@@ -41,7 +41,7 @@ ShoppingList_Node/
 |
 │── assets/
 │   ├── GETALL.png
-│   ├── GWTByID.png
+│   ├── GETByID.png
 │   └── POST.png
 ├── src/
 │   ├── controllers/
@@ -342,9 +342,9 @@ Updates one or more fields of an existing shopping list item.
 
 The API allows any combination of:
 
-* `name`
-* `quantity`
-* `status`
+ `name`
+ `quantity`
+ `status`
 
 At least one field must be provided.
 
