@@ -37,8 +37,12 @@ The Shopping List API supports:
 ## Project Structure
 
 ```text
-shopping-list-api/
-│
+ShoppingList_Node/
+|
+│── assets/
+│   ├── GETALL.png
+│   ├── GWTByID.png
+│   └── POST.png
 ├── src/
 │   ├── controllers/
 │   │   └── shoppinglist.ts
@@ -174,6 +178,22 @@ Each shopping list item has the following structure:
 | `status`   | string | `pending` or `completed`                        |
 
 The `id` is automatically generated and should not be supplied when creating an item.
+
+---
+
+## Postman Testing
+
+### GET All Items
+
+![GET All Items](GETALL.png)
+
+### GET Item By ID
+
+![GET Item By ID](GETByID.png)
+
+### POST Item
+
+![POST Item](POST.png)
 
 ---
 
