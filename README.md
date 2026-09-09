@@ -185,15 +185,15 @@ The `id` is automatically generated and should not be supplied when creating an 
 
 ### GET All Items
 
-![GET All Items](GETALL.png)
+![GET All Items](./assets/GETALL.png)
 
 ### GET Item By ID
 
-![GET Item By ID](GETByID.png)
+![GET Item By ID](./assets/GETByID.png)
 
 ### POST Item
 
-![POST Item](POST.png)
+![POST Item](./assets/POST.png)
 
 ---
 
